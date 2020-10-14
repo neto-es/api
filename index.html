@@ -3,51 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trivia APP</title>
+    <title>Trivia</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    
-    <div class="container mt-5">
-        <div>
-            <div class="form-group">
-                <label for="questions-number">Elige cuántas preguntas quieres</label>
-                <select class="form-control" id="questions-number">
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                  <option value="20">20</option>
-                </select>
-
-                <label for="question-category">Eige una categoria</label>
-                <select class="form-control" id="question-category" onchange="selectCategory()">
-                  <!-- <option value="">Any Category</option>
-                  <option value="9">General Knowledge</option>
-                  <option value="10">Entertainment: Books</option>
-                  <option value="11">Entertainment: Film</option> -->
-                </select>
-
-                <label for="questions-difficulty">Elige la dificultad</label>
-                <select class="form-control" id="questions-difficulty">
-                  <option value="">Any Difficulty</option>
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
-                </select>                
-
-                <label for="questions-type">Elige el tipo de pregunta</label>
-                <select class="form-control" id="questions-type">
-                  <option value="">Any Type</option>
-                  <option value="multiple">Multiple Change</option>
-                  <option value="boolean">True/False</option>
-                </select>
-
-                <butto onclick="getQuestions()" type="submit" class="btn btn-primary">Confirm</button>
-              </div>
+    <div class="container">
+        <div class="form-group">
+            <label class="h2"for="selectNumberQuestions">Cantidad de preguntas</label>
+            <select onchange="selectNumber()" class="form-control" id="selectNumberQuestions">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+            </select>
         </div>
-        <!-- Aquí van las tarjetas -->
-        <div id="container-cards"> 
+        <div class="form-group">
+            <label class="h2"for="select-categories">Categoría deseada</label>
+            <select onchange="selectCategory()" class="form-control" id="select-categories">
+                
+              <!-- Aquí van las opciones generadas con javascript -->
+            </select>
+        </div>
 
+        <div class="form-group">
+            <label class="h2" for="selectTypeQuest">Tipo de pregunta</label>
+            <select onclick="selectType()" class="form-control" id="selectTypeQuest">
+                <option value="boolean">Verdadero o falso</option>
+                <option value="multiple">Opción Múltiple</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="h2" for="selectTypeQuest">Dificultad</label>
+            <select onclick="selectDifficult()" class="form-control" id="selectDifficult">
+                <option value="easy">Fácil</option>
+                <option value="medium">Media</option>
+                <option value="hard">Difícil</option>
+            </select>
+        </div>
+        <button onclick="getDataTrivia()" type="submit" class="btn btn-primary btn-lg btn-block">Obtener</button>
+
+        <div class="container">
+            <div class="row" id="Questions">
+                <!-- Aquí van las preguntas -->
+            </div>
         </div>
     </div>
     <script src="./trivia.js"></script>
